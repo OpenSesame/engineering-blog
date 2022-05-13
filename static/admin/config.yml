@@ -6,7 +6,7 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "OpenSesame Engineering Blog"
+  - name: "blog"
     label: "Blog"
     folder: "content/blog"
     create: true

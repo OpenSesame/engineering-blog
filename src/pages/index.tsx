@@ -1,19 +1,43 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+export interface Post {
+  excerpt: string
+  frontmatter: {
+    date: string
+    description: string
+    title: string
+  }
+  fields: {
+    slug: string
+  }
+  html: string
+}
+
+export interface Site {
+  siteMetadata: {
+    title: string
+  }
+}
+
+interface PageData {
+  site: Site
+  allMarkdownRemark: {
+    nodes: Array<Post>
+  }
+}
+
+const BlogIndex = ({ data, location }: PageProps<PageData>) => {
+  const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -27,7 +51,10 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
 
-      <p>A blog from the engineers at <a href="https://www.opensesame.com/">OpenSesame</a>.</p>
+      <p>
+        A blog from the engineers at{" "}
+        <a href="https://www.opensesame.com/">OpenSesame</a>.
+      </p>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {

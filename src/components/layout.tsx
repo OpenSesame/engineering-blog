@@ -1,7 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const Layout = ({ location, title, children }) => {
+interface LayoutProps {
+  children: React.ReactNode
+  title: string
+  location: Location
+}
+
+const Layout = ({ location, title, children }: LayoutProps) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -26,7 +32,8 @@ const Layout = ({ location, title, children }) => {
       <main>{children}</main>
       <hr />
       <footer>
-        © {new Date().getFullYear()} <a href="https://www.opensesame.com">OpenSesame</a>
+        © {new Date().getFullYear()}{" "}
+        <a href="https://www.opensesame.com">OpenSesame</a>
       </footer>
     </div>
   )

@@ -1,10 +1,23 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Post } from "../pages"
 
-const BlogPostTemplate = ({ data, location }) => {
+interface BlogPostTemplateData {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  markdownRemark: Post
+}
+
+const BlogPostTemplate = ({
+  data,
+  location,
+}: PageProps<BlogPostTemplateData>) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
 

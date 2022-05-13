@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `OpenSesame Engineering Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `OpenSesame`,
+      summary: `Develop Your Most Engaged Workforce. Every Team. Everywhere.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A blog from the engineers at OpenSesame.`,
+    siteUrl: `https://opensesame-engineering-blog.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `opensesame`,
     },
   },
   plugins: [

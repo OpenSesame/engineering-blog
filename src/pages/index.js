@@ -26,7 +26,9 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <Bio />
+
+      <p>A blog from the engineers at <a href="https://www.opensesame.com/">OpenSesame</a>.</p>
+
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug

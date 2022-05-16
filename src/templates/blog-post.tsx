@@ -1,9 +1,11 @@
 import * as React from "react"
-import { graphql, PageProps } from "gatsby"
-
+import { Link as GatsbyLink, graphql, PageProps } from "gatsby"
+import Link from "@mui/material/Link"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Post } from "../pages"
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
 
 interface BlogPostTemplateData {
   site: {
@@ -27,15 +29,31 @@ const BlogPostTemplate = ({
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+
+      <Box sx={{ mb: 6 }}>
+        <Link component={GatsbyLink} to="/">
+          {siteTitle}
+        </Link>
+      </Box>
+
       <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
+        <Box component="header" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            itemProp="headline"
+            fontWeight={700}
+          >
+            {post.frontmatter.title}
+          </Typography>
+
+          <Typography>{post.frontmatter.date}</Typography>
+        </Box>
+
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

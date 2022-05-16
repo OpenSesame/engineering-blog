@@ -1,8 +1,12 @@
 import * as React from "react"
-import { Link, graphql, PageProps } from "gatsby"
-
+import { Link as GatsbyLink, graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Typography from "@mui/material/Typography"
+import Link from "@mui/material/Link"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Box from "@mui/material/Box"
 
 export interface Post {
   excerpt: string
@@ -51,30 +55,49 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
 
-      <p>
-        A blog from the engineers at{" "}
-        <a href="https://www.opensesame.com/">OpenSesame</a>.
-      </p>
+      <Box component="header" sx={{ textAlign: "center", mb: 4 }}>
+        <Typography variant="h3" component="h1" gutterBottom fontWeight={700}>
+          {siteTitle}
+        </Typography>
 
-      <ol style={{ listStyle: `none` }}>
+        <Typography sx={{ textAlign: "center" }}>
+          A blog from the engineers at{" "}
+          <Link href="https://www.opensesame.com/">OpenSesame</Link>.
+        </Typography>
+      </Box>
+
+      <List>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
+            <ListItem key={post.fields.slug} sx={{ pl: 0 }}>
               <article
                 className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
               >
                 <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                  <Typography
+                    variant="h4"
+                    component="h2"
+                    itemProp="headline"
+                    fontWeight={500}
+                  >
+                    <Link
+                      component={GatsbyLink}
+                      to={post.fields.slug}
+                      itemProp="url"
+                    >
+                      {title}
                     </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
+                  </Typography>
+
+                  <Typography variant="body1" component="h2">
+                    {post.frontmatter.date}
+                  </Typography>
                 </header>
+
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
@@ -84,10 +107,10 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                   />
                 </section>
               </article>
-            </li>
+            </ListItem>
           )
         })}
-      </ol>
+      </List>
     </Layout>
   )
 }

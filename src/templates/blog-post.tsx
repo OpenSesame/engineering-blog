@@ -1,14 +1,27 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import { Link as GatsbyLink, graphql, PageProps } from "gatsby"
+import Link from "@mui/material/Link"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Post } from "../pages"
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
 
-const BlogPostTemplate = ({ data, location }) => {
+interface BlogPostTemplateData {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  markdownRemark: Post
+}
+
+const BlogPostTemplate = ({
+  data,
+  location,
+}: PageProps<BlogPostTemplateData>) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -16,50 +29,36 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+
+      <Box sx={{ mb: 6 }}>
+        <Link component={GatsbyLink} to="/">
+          {siteTitle}
+        </Link>
+      </Box>
+
       <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
+        <Box component="header" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            itemProp="headline"
+            fontWeight={700}
+          >
+            {post.frontmatter.title}
+          </Typography>
+
+          <Typography>{post.frontmatter.date}</Typography>
+        </Box>
+
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }

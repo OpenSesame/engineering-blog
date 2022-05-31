@@ -11,6 +11,15 @@ export default createTheme({
       "sans-serif",
     ].join(", "),
     fontSize: 18,
+    h1: {
+      fontWeight: 700,
+    },
+    h3: {
+      fontWeight: 700,
+    },
+    h4: {
+      fontWeight: 700,
+    }
   },
   palette: {
     primary: {

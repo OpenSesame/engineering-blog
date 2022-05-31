@@ -11,6 +11,7 @@ import Box from "@mui/material/Box"
 export interface Post {
   excerpt: string
   frontmatter: {
+    author: string
     date: string
     description: string
     title: string
@@ -52,10 +53,10 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
       <Seo />
 
       <Box component="header" sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant="h3" component="h1" fontWeight={700}>
+        <Typography variant="h3" component="h1">
           OpenSesame
         </Typography>
-        <Typography variant="h3" component="h1" gutterBottom fontWeight={700}>
+        <Typography variant="h3" component="h1" gutterBottom>
           Engineering Blog
         </Typography>
 
@@ -81,7 +82,6 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                     variant="h5"
                     component="h2"
                     itemProp="headline"
-                    fontWeight={500}
                     gutterBottom
                   >
                     <Link
@@ -93,8 +93,8 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                     </Link>
                   </Typography>
 
-                  <Typography variant="body1" component="h2">
-                    {post.frontmatter.date}
+                  <Typography variant="caption" component="h2">
+                    by {post.frontmatter.author} | {post.frontmatter.date}
                   </Typography>
                 </header>
 
@@ -131,6 +131,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          author
           date(formatString: "MMMM DD, YYYY")
           title
           description

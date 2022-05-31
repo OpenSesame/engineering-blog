@@ -43,7 +43,7 @@ const Layout = ({ location, title, children }: LayoutProps) => {
 
         <Box component="footer" sx={{ mb: 8 }}>
           <Divider sx={{ mb: 2 }} />
-          <Typography fontSize={16}>
+          <Typography variant="caption">
             © {new Date().getFullYear()}{" "}
             <Link href="https://www.opensesame.com">OpenSesame</Link>
           </Typography>

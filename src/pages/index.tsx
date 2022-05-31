@@ -42,11 +42,7 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>No blog posts found.</p>
       </Layout>
     )
   }
@@ -62,7 +58,7 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
 
         <Typography sx={{ textAlign: "center" }}>
           A blog from the engineers at{" "}
-          <Link href="https://www.opensesame.com/">OpenSesame</Link>.
+          <Link href="https://www.opensesame.com/">OpenSesame</Link>
         </Typography>
       </Box>
 

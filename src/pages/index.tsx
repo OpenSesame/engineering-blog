@@ -11,6 +11,7 @@ import Box from "@mui/material/Box"
 export interface Post {
   excerpt: string
   frontmatter: {
+    author: string
     date: string
     description: string
     title: string
@@ -42,27 +43,26 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>No blog posts found.</p>
       </Layout>
     )
   }
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo />
 
       <Box component="header" sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom fontWeight={700}>
-          {siteTitle}
+        <Typography variant="h3" component="h1">
+          OpenSesame
+        </Typography>
+        <Typography variant="h3" component="h1" gutterBottom>
+          Engineering Blog
         </Typography>
 
-        <Typography sx={{ textAlign: "center" }}>
+        <Typography gutterBottom sx={{ mb: 4 }}>
           A blog from the engineers at{" "}
-          <Link href="https://www.opensesame.com/">OpenSesame</Link>.
+          <Link href="https://www.opensesame.com/">OpenSesame</Link>
         </Typography>
       </Box>
 
@@ -79,10 +79,10 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
               >
                 <header>
                   <Typography
-                    variant="h4"
+                    variant="h5"
                     component="h2"
                     itemProp="headline"
-                    fontWeight={500}
+                    gutterBottom
                   >
                     <Link
                       component={GatsbyLink}
@@ -93,8 +93,8 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                     </Link>
                   </Typography>
 
-                  <Typography variant="body1" component="h2">
-                    {post.frontmatter.date}
+                  <Typography variant="caption" component="h2">
+                    by {post.frontmatter.author} | {post.frontmatter.date}
                   </Typography>
                 </header>
 
@@ -131,6 +131,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          author
           date(formatString: "MMMM DD, YYYY")
           title
           description

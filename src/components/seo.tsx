@@ -13,7 +13,7 @@ interface SeoProps {
   description?: string
   lang?: string
   meta?: Array<{ content: string; name: string }>
-  title: string
+  title?: string
 }
 
 const Seo = ({ description = "", lang = "en", meta = [], title }: SeoProps) => {
@@ -41,7 +41,7 @@ const Seo = ({ description = "", lang = "en", meta = [], title }: SeoProps) => {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={title ?? defaultTitle}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
         {

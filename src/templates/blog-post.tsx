@@ -30,12 +30,6 @@ const BlogPostTemplate = ({
         description={post.frontmatter.description || post.excerpt}
       />
 
-      <Box sx={{ mb: 6 }}>
-        <Link component={GatsbyLink} to="/">
-          {siteTitle}
-        </Link>
-      </Box>
-
       <article
         className="blog-post"
         itemScope
@@ -43,10 +37,11 @@ const BlogPostTemplate = ({
       >
         <Box component="header" sx={{ textAlign: "center" }}>
           <Typography
-            variant="h3"
+            variant="h4"
             component="h1"
             itemProp="headline"
             fontWeight={700}
+            gutterBottom
           >
             {post.frontmatter.title}
           </Typography>

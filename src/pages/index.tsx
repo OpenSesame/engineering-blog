@@ -49,14 +49,17 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo />
 
       <Box component="header" sx={{ textAlign: "center", mb: 4 }}>
+        <Typography variant="h3" component="h1" fontWeight={700}>
+          OpenSesame
+        </Typography>
         <Typography variant="h3" component="h1" gutterBottom fontWeight={700}>
-          {siteTitle}
+          Engineering Blog
         </Typography>
 
-        <Typography sx={{ textAlign: "center" }}>
+        <Typography gutterBottom sx={{ mb: 4 }}>
           A blog from the engineers at{" "}
           <Link href="https://www.opensesame.com/">OpenSesame</Link>
         </Typography>
@@ -75,10 +78,11 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
               >
                 <header>
                   <Typography
-                    variant="h4"
+                    variant="h5"
                     component="h2"
                     itemProp="headline"
                     fontWeight={500}
+                    gutterBottom
                   >
                     <Link
                       component={GatsbyLink}

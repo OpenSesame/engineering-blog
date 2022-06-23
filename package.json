@@ -12,7 +12,7 @@
     "@emotion/styled": "11.9.3",
     "@fontsource/inter": "4.5.10",
     "@mui/icons-material": "5.8.4",
-    "@mui/material": "5.8.4",
+    "@mui/material": "5.8.5",
     "gatsby": "4.16.0",
     "gatsby-plugin-feed": "4.16.0",
     "gatsby-plugin-gatsby-cloud": "4.16.0",

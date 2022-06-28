@@ -5,14 +5,6 @@ date: 2022-06-28T15:31:26.944Z
 description: Comparing React, Angular, and Svelte, to help you make the best
   choice for your project.
 ---
-## Table of Contents
-
-* [Overview](#overview)
-  * [React](#react)
-  * [Angular](#angular)
-  * [Svelte](#svelte)
-* [TLDR](#tldr)
-
 ## Overview
 
 ### React

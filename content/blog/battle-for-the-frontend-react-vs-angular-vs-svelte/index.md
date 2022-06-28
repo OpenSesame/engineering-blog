@@ -17,11 +17,15 @@ description: Comparing React, Angular, and Svelte, to help you make the best
 
 ### React
 
+When React was released 
+
 ### Angular
 
 ### Svelte
 
-One of the newest players in the frontend landscape, Svelte has taken the world by storm
+One of the newest players in the frontend landscape, [Svelte](https://svelte.dev) has taken the frontend by storm. Unlike Angular and React, Svelte offloads as much work as possible from the browser into a compile step during the build process. It also avoids the use of a virtual DOM in favor of surgical DOM updates when state changes. 
+
+Like React, Svelte isn't "batteries included" out of the box, but, they do have [SvelteKit](https://kit.svelte.dev/) which is built as a framework around Svelte. It includes server-side rendering, hot module reloading, filesystem routing, and more and is intended as the defacto Svelte solution.
 
 ## TLDR
 

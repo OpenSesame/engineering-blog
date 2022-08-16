@@ -1,5 +1,5 @@
 ---
-title: Using npm-check-updates to update dependencies with supporting packages
+title: Update Dependencies & Supporting Packages with npm-check-updates
 author: Grace Hunter
 date: 2022-08-16T20:57:22.980Z
 description: How can a dependency and all of its supporting packages be updated efficiently?

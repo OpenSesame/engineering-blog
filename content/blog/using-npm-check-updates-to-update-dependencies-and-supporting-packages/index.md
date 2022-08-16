@@ -14,7 +14,7 @@ We want to check for updates on any packages that have a common word in their na
 
 ```npx npm-check-updates ``/.*eslint.*$/`` ```
 
-![An image of the shell after running npm-check-updates. A list of package names that match the regex are displayed with the current and latest versions. ](screen-shot-2022-08-16-at-2.01.25-pm.png "Result of running npm-check-updates")
+![An image of the command line after checking for updates. A list of package names that match the regex are displayed with the current and latest versions. ](screen-shot-2022-08-16-at-2.01.25-pm.png "Result of running npm-check-updates")
 
 For each package matching the regex, you will see the current version and the latest version. Check that the list of packages includes all that you want to update. If not, adjust the regex. 
 
@@ -22,7 +22,7 @@ Notice the color-coding of the version numbers. Any versions that are colored re
 
 ```npx npm-check-updates ``/.*eslint.*$/`` -u```
 
-`[image]`
+![An image of the command line after checking for updates. A list of package names are displayed with the previous and current versions. ](screen-shot-2022-08-16-at-2.39.06-pm.png "Result of running npm-check-updates -u")
 
 Lastly, run npm install to install the new versions.
 

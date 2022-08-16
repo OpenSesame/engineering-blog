@@ -1,8 +1,8 @@
 ---
-title: Update Dependencies & Supporting Packages with npm-check-updates
+title: Easily Update Dependencies with Supporting Packages
 author: Grace Hunter
 date: 2022-08-16T20:57:22.980Z
-description: How can a dependency and all of its supporting packages be updated efficiently?
+description: Using npm-check-updates to upgrade multiple packages to the latest
 ---
 One of your dependencies needs to be upgraded, but it has several plugins or supporting packages. How can all of these packages be updated efficiently? Using eslint on a sample project, this post will show an easy way to check and update all of these packages.
 

@@ -10,7 +10,7 @@ Even if you've been writing TypeScript for a while, you might not have ran acros
 
 ## Record
 
-The [Record type](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) essentially represents an object. You can type an object with specific types for its keys and values using an [index signature](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures):
+The [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) type essentially represents an object. You can type an object with specific types for its keys and values using an [index signature](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures):
 
 ```typescript
 type StudentName = { [id: number]: string; }
@@ -43,7 +43,9 @@ If I try to add German to this list, the compiler gives us a nice error.
 
 ![TypeScript compile error.](screen-shot-2022-08-16-at-5.29.58-pm.png "Error")
 
+Sometimes you won't have a nice list of
 
+Another useful thing is taking the keys of an existing object and assigning different values. For example, you might have a type that's shared between UI and 
 
 
 

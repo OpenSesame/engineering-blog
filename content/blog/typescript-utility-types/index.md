@@ -18,8 +18,6 @@ type StudentName = { [id: number]: string; }
 
 The equivalent type with a `Record` is a bit more concise:
 
-
-
 ```typescript
 type StudentName = Record<number: string>;
 ```

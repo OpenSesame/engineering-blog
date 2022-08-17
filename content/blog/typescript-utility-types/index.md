@@ -19,7 +19,7 @@ type StudentName = { [id: number]: string; }
 The equivalent type with a `Record` is a bit more concise:
 
 ```typescript
-type StudentName = Record<number: string>;
+type StudentName = Record<number, string>;
 ```
 
 If syntax were the only difference, I'd prefer the index signature since the `id` key gives more detail about the intent of the type.
@@ -39,7 +39,15 @@ const languages: LanguageName = {
  
 ```
 
+If I try to add German to this list, the compiler gives us a nice error.
 
+![TypeScript compile error.](screen-shot-2022-08-16-at-5.29.58-pm.png "Error")
+
+
+
+
+
+The `Record` type is pretty powerful!
 
 ## Partial
 

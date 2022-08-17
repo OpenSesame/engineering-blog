@@ -1,16 +1,33 @@
 ---
 title: TypeScript Utility Types
 author: Nick Bernard
-date: 2022-08-16T15:52:08.582Z
+date: 2022-08-16T23:38:36.073Z
 description: Learn about a few handy utility types from TypeScript.
 ---
 ![Tools on workbench](tools.jpg "Tools!")
 
-Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html).
+Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These are super handy and save you from having to implement common type transformations manually.  Here are a few utility types I reach for often.
 
 ## Record
 
-The [Record type](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) essentially represents an object. 
+The [Record type](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) essentially represents an object. You can type an object with specific types for its keys and values using an [index signature](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures) with `type StudentName = { [id: number]: string; }`. The equivalent type with a `Record` is a bit more concise `type StudentName = Record<number: string>;` If syntax were the only difference, I'd prefer the index signature since the `id` key gives more detail about the intent of the type.
+
+The `Record` type gets really useful when you want to lock down the properties of an object. In the above example, keys can be any `string`, but here's an example of using a [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) of strings for the keys:
+
+```
+type SupportedLocale = 'en' | 'fr' | 'es';
+
+type LanguageName = Record<SupportedLocale, string>;
+
+const languages: LanguageName = {
+  'en': 'English',
+  'fr': 'French',
+  'es': 'Spanish',
+};
+ 
+```
+
+
 
 ## Partial
 

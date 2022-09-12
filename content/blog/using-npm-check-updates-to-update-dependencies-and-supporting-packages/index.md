@@ -24,8 +24,6 @@ For each package matching the regex, you will see the current version and the la
 
 Notice the color-coding of the version numbers. Any versions that are colored red indicate a major version, cyan indicates a minor version, and green means a patch upgrade. To upgrade every package on the list to the latest version, run the same command, but with the `-u` flag. This will modify package.json to have the latest version numbers.
 
-`npx npm-check-updates "/.*eslint.*$/" -u`
-
 ![An image of the command line after checking for updates. A list of package names are displayed with the previous and current versions. ](screen-shot-2022-08-16-at-2.39.06-pm.png "Result of running npm-check-updates -u")
 
 Lastly, run `npm install` to install the new versions.

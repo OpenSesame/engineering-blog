@@ -1,7 +1,7 @@
 ---
 title: How to Easily Update Dependencies with Supporting Packages
 author: Grace Hunter
-date: 2022-08-16T20:57:22.980Z
+date: 2022-09-12T19:14:44.096Z
 description: Use npm-check-updates to upgrade multiple packages to their latest versions
 ---
 ![A shelf with books](alfons-morales-ylswjsy7stw-unsplash.jpg "A shelf with books")

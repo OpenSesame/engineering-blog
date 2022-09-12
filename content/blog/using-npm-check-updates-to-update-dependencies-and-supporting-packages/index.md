@@ -12,7 +12,7 @@ The package npm-check-updates allows you to check what updates are available for
 
 We want to check for updates on any packages that have a common word in their name. npm-check-updates accepts as an argument a package name or regex. Execute the following in the root directory of the project, substituting the name of your dependency for ‘eslint’. The regex will match all packages that have that word in the name. 
 
-```npx npm-check-updates ``/.*eslint.*$/`` ```
+`npx npm-check-updates '/.*eslint.*$/'`
 
 ![An image of the command line after checking for updates. A list of package names that match the regex are displayed with the current and latest versions. ](screen-shot-2022-08-16-at-2.01.25-pm.png "Result of running npm-check-updates")
 
@@ -20,7 +20,7 @@ For each package matching the regex, you will see the current version and the la
 
 Notice the color-coding of the version numbers. Any versions that are colored red indicate a major version, cyan indicates a minor version, and green means a patch upgrade. To upgrade every package on the list to the latest version, run the same command, but with the -u flag. This will modify package.json to have the latest version numbers.
 
-```npx npm-check-updates ``/.*eslint.*$/`` -u```
+`npx npm-check-updates '/.*eslint.*$/' -u`
 
 ![An image of the command line after checking for updates. A list of package names are displayed with the previous and current versions. ](screen-shot-2022-08-16-at-2.39.06-pm.png "Result of running npm-check-updates -u")
 

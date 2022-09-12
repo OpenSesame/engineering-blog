@@ -9,7 +9,7 @@ description: Comparing React, Angular, and Svelte, to help you make the best
 
 ### React
 
-When React was released 
+Possibly the most well established of the current frameworks, React is the current most popular frontend library around. With several frameworks built on top of it (Next.js, Gatsby.js, Redwood.js, and more) it is the obvious choice for new developers. This is because of the levels of support available and the number of tools built around the ecosystem. It is not necessarily the easiest to learn, but 
 
 ### Angular
 

@@ -6,7 +6,7 @@ description: Learn about a few handy utility types from TypeScript.
 ---
 ![Tools on a workbench](tools.jpg "Tools on a workbench")
 
-Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These come in handy and save you from having to manually implement some common type transformations. I'll go over a few utility types I use often and how you can put them to work in your code.
+Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These come in handy and save you from having to manually implement some common type transformations. I'll go over a few utility types we use often and how you can put them to work in your code.
 
 ## Record
 
@@ -22,9 +22,9 @@ With the [Record](https://www.typescriptlang.org/docs/handbook/utility-types.htm
 type Book = Record<number, string>;
 ```
 
-If syntax were the only difference, I’d prefer the index signature since the \`isbn\` key gives more detail about the intent of the type; however, the Record type is a lot more powerful!
+If syntax were the only difference, I’d prefer the index signature since the `isbn` key gives more detail about the intent of the type; however, the `Record` type is a lot more powerful!
 
-Record starts getting really useful when you want to lock down the properties of an object. In the above example, the object’s properties can be any string, but here's an example of using a [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) of strings for the keys:
+`Record` starts getting really useful when you want to lock down the properties of an object. In the above example, the object’s properties can be any string, but here's an example of using a [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) of strings for the keys:
 
 ```typescript
 type Locale = 'en' | 'fr' | 'es';
@@ -87,12 +87,18 @@ The opposite of `Partial` is `Required`—it makes all the properties of a type 
 
 Sometimes you just need a subset of properties from a given type. Instead of creating a new type with values that are duplicated elsewhere in the codebase, you can use `Pick` and `Omit`.
 
-P﻿ick takes the given properties from a type. 
-
-A﻿nd Many More
+[P﻿ick](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys) takes the given properties from a type. We use Pick to build custom React components that are based on other third-party components in order to simply the interface
 
 
 
-T﻿here are a ton of other types.
+I﻿f you need to build a custom React component that's based on another, possibly
 
-Try these out in the [TypeScript Playground](https://www.typescriptlang.org/play?strictNullChecks=true&q=171#example/built-in-utility-types).
+React componentustom 
+
+
+
+`Pick` is for creating a custom component that's based on
+
+## A﻿nd Many More
+
+T﻿here are a ton of other types. Try them out in the [TypeScript Playground](https://www.typescriptlang.org/play?strictNullChecks=true&q=171#example/built-in-utility-types).

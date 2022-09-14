@@ -4,52 +4,62 @@ author: Nick Bernard
 date: 2022-08-16T23:38:36.073Z
 description: Learn about a few handy utility types from TypeScript.
 ---
-![Tools on workbench](tools.jpg "Tools!")
+![Tools on a workbench](tools.jpg "Tools on a workbench")
 
-Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These are super handy and save you from having to implement common type transformations manually.  Here are a few utility types I reach for often.
+Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These come in handy and save you from having to manually implement some common type transformations. Here are a few utility types I reach for often.
 
 ## Record
 
-The [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) type essentially represents an object. You can type an object with specific types for its keys and values using an [index signature](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures):
+You can type an object with specific types for its keys and values using an [index signature](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures):
 
 ```typescript
-type StudentName = { [id: number]: string; }
+type Book = { [isbn: number]: string; };
 ```
 
-The equivalent type with a `Record` is a bit more concise:
+With the [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) type, you can represent the same object a bit more concisely:
 
 ```typescript
-type StudentName = Record<number, string>;
+type Book = Record<number, string>;
 ```
 
-If syntax were the only difference, I'd prefer the index signature since the `id` key gives more detail about the intent of the type.
+If syntax were the only difference, I’d prefer the index signature since the \`isbn\` key gives more detail about the intent of the type; however, the Record type is a lot more powerful!
 
-The `Record` type gets really useful when you want to lock down the properties of an object. In the above example, keys can be any `string`, but here's an example of using a [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) of strings for the keys:
+Record starts getting really useful when you want to lock down the properties of an object. In the above example, the object’s properties can be any string, but here's an example of using a [union type](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions) of strings for the keys:
 
 ```typescript
-type SupportedLocale = 'en' | 'fr' | 'es';
+type Locale = 'en' | 'fr' | 'es';
 
-type LanguageName = Record<SupportedLocale, string>;
+type LanguageName = Record<Locale, string>;
 
 const languages: LanguageName = {
   'en': 'English',
   'fr': 'French',
   'es': 'Spanish',
 };
- 
 ```
 
-If I try to add German to this list, the compiler gives us a nice error.
+If I try to add German to this list, the compiler displays a nice error.
 
 ![TypeScript compile error.](screen-shot-2022-08-16-at-5.29.58-pm.png "Error")
 
-Sometimes you won't have a nice list of
+Another common use case is transforming the values of an object to a different type. Instead of maintaining a type that’s just used for the keys of other types, we can use the `keyof` keyword:
 
-Another useful thing is taking the keys of an existing object and assigning different values. For example, you might have a type that's shared between UI and 
+```typescript
+const languages = {
+  en: 'English',
+  fr: 'French',
+  es: 'Spanish',
+};
 
+type SupportedLanguages = Record<keyof typeof languages, boolean>;
 
+const appLanguages: SupportedLocales = {
+  en: true,
+  es: true,
+};
+```
 
-The `Record` type is pretty powerful!
+Again, there’s a nice error if an unexpected property is used.
 
 ## Partial
 

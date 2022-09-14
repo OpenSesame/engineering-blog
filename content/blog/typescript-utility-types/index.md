@@ -6,7 +6,7 @@ description: Learn about a few handy utility types from TypeScript.
 ---
 ![Tools on a workbench](tools.jpg "Tools on a workbench")
 
-Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These come in handy and save you from having to manually implement some common type transformations. Here are a few utility types I reach for often.
+Even if you've been writing TypeScript for a while, you might not have ran across the language's built-in [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html). These come in handy and save you from having to manually implement some common type transformations. I'll go over a few utility types I use often and how you can put them to work in your code.
 
 ## Record
 
@@ -71,10 +71,7 @@ interface Profile {
   avatar: string;
 }
 
-const createMockProfile = ({
-  name: 'Mock User',
-  avatar: 'test.jpg'
-}: Partial<Profile>): Profile => ({
+const createMockProfile = ({ name: 'Mock User', avatar: 'test.jpg' }: Partial<Profile>): Profile => ({
   name,
   avatar,
 });
@@ -84,8 +81,18 @@ const testProfile = createMockProfile({ name: 'Test User' });
 console.log(testProfile); // { name: 'Test User', avatar: 'test.jpg' }
 ```
 
-The opposite of Partial is Required.
+The opposite of `Partial` is `Required`—it makes all the properties of a type required. 
 
 ## Pick and Omit
+
+Sometimes you just need a subset of properties from a given type. Instead of creating a new type with values that are duplicated elsewhere in the codebase, you can use `Pick` and `Omit`.
+
+P﻿ick takes the given properties from a type. 
+
+A﻿nd Many More
+
+
+
+T﻿here are a ton of other types.
 
 Try these out in the [TypeScript Playground](https://www.typescriptlang.org/play?strictNullChecks=true&q=171#example/built-in-utility-types).

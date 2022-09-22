@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "opensesame-engineering-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A blog from the engineers at OpenSesame",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "OpenSesame",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/OpenSesame/engineering-blog/issues"
   },
   "dependencies": {
     "@emotion/react": "11.10.4",

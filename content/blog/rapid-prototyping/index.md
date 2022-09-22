@@ -97,3 +97,46 @@ Don’t be discouraged if your tests turn up more unknowns than you had before r
 ### 1. Gather discovered data and feedback.
 
 Data is the results of your tests and should not include any interpretation of what has been found. Here is an example of the difference between data and information:
+
+| ﻿Data                                                                                       | Information                                                                                                                                               |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ﻿Twelve percent of the requests to the endpoint returned a 404 error.                       | The endpoint has a high enough failure rate that, in order to use it and provide consistent results, we will need to retry our requests up to five times. |
+| ﻿There are three documented methods available to use the service and get the data required. | There are three options to get the required data, and we will need to test each to determine which methods are the best option for our requirements.      |
+
+Feedback is another significant output of your tests and the overall process. Feedback is information, requests or discoveries that come from what you’ve learned or from what has been gathered through the “demonstrate results” cycle. Feedback can come in the form of discovering additional unknowns, new existing assumptions, changes in the approach, problem statement or desired outcome.
+
+### 2. Convert the data into information.
+
+The data is interesting - and should be recorded and accessible to your stakeholders and team - now and in the future. However, it’s not particularly useful on its own. Take a look at the data, and offer an interpretation - what does the data mean? How does it affect your hypothesis? What changes should be made to the thesis? Should there be changes to the next step or experiment? Does the data point strongly that proving or disproving the hypothesis is complete?
+
+### 3. Tell the story with the information.
+
+Information is excellent - it is a great way to explore the data with the consumers of that information. It can guide and inform the process. However, it can also be boring, and a lot of information can be hard to synthesize, understand, and act on. The information gathered in your experiments is to indicate and decide upon action.
+
+How do you build consensus around a course of action? Through telling a story. Find a way to explore the information - to explain why it is what it is and how it leads you to the conclusions you have reached. Whether that conclusion is “more tests needed - and here’s the next one” or “we’ve proven the hypothesis - the prototyping is complete,” the story carries the consumer along. It puts together a clear and compelling picture of what should be next.
+
+### 4. Show something that demonstrates the story.
+
+Stories are great. And sometimes, just reading a story is an inspiring experience. But these days, SHOWING your story is usually the most effective way of sharing what you have learned. Think about how you can show what you’ve learned in a way that your audience can easily understand and enjoy. Is it a quick demo of the click-through website that shows how to get the work done? A graphic with a couple of bullet points? A video that walks them through the problem, your data, and the interpreted results? Maybe it’s a course built in Simon?
+
+Spend some time creating a presentation. The experiments and the tests - these are important - but to finish a prototype, you need to build understanding as well as consensus about the next steps - and a good demonstration can’t be beaten to meet those goals.
+
+### 5. Gather feedback from the demonstration.
+
+If you told a good story and demonstrated it well, your audience will be invested in the outcome and may have valuable feedback about what you’ve discovered. This feedback may help you decide what tests need to run next or give you a different direction - even a different hypothesis!
+
+Record the feedback, and identify your action items. Then, do whatever is next!
+
+| ﻿Word             | Definition                                                                                                                                                                                                                                                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hypothesis        | A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.                                                                                                                                                     |
+| scientific method | A method of procedure that has characterized natural science since the 17th century, consisting in systematic observation, measurement, and experiment, and the formulation, testing, and modification of hypotheses.                                                          |
+| ﻿user story       | A user story is a tool in Agile software development used to capture a description of a software feature from a user's perspective. The user story describes the type of user, what they want and why. A user story helps to create a simplified description of a requirement. |
+
+
+
+## Resources
+
+* [Back your prototypes with science — 8 methods explained](https://uxplanet.org/back-your-prototypes-with-science-8-methods-explained-cdd58d9a8f42 "https\://uxplanet.org/back-your-prototypes-with-science-8-methods-explained-cdd58d9a8f42")
+* [User Stories](https://www.mountaingoatsoftware.com/agile/user-stories "https\://www.mountaingoatsoftware.com/agile/user-stories")
+* [The scientific method](https://www.khanacademy.org/science/biology/intro-to-biology/science-of-biology/a/the-science-of-biology "https\://www.khanacademy.org/science/biology/intro-to-biology/science-of-biology/a/the-science-of-biology")

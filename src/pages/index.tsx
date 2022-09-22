@@ -12,6 +12,7 @@ export interface Post {
   excerpt: string
   frontmatter: {
     author: string
+    authorTitle: string
     date: string
     description: string
     title: string

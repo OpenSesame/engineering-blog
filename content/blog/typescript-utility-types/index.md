@@ -1,6 +1,7 @@
 ---
 title: TypeScript Utility Types
 author: Nick Bernard
+authorTitle: Senior Software Engineer
 date: 2022-08-16T23:38:36.073Z
 description: Learn about a few handy utility types from TypeScript.
 ---

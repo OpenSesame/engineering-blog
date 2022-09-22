@@ -35,7 +35,7 @@ const Layout = ({ location, title, children }: LayoutProps) => {
       <Container
         data-is-root-path={isRootPath}
         maxWidth={false}
-        sx={{ mt: 10, maxWidth: 700 }}
+        sx={{ mt: 10, maxWidth: 780 }}
       >
         <Box component="main" sx={{ mb: 8 }}>
           {children}

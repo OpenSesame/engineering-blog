@@ -10,7 +10,7 @@ export default createTheme({
       "Arial",
       "sans-serif",
     ].join(", "),
-    fontSize: 18,
+    fontSize: 16,
     h1: {
       fontWeight: 700,
     },

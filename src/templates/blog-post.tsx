@@ -6,6 +6,7 @@ import Seo from "../components/seo"
 import { Post } from "../pages"
 import Typography from "@mui/material/Typography"
 import Box from "@mui/material/Box"
+import { Stack } from "@mui/system"
 
 interface BlogPostTemplateData {
   site: {
@@ -21,34 +22,39 @@ const BlogPostTemplate = ({
   location,
 }: PageProps<BlogPostTemplateData>) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `OpenSesame`
+  const { author, authorTitle, date, description, title } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <Seo title={title} description={description || post.excerpt} />
 
       <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <Box component="header" sx={{ textAlign: "center" }}>
+        <Stack
+          direction="column"
+          component="header"
+          sx={{ textAlign: "center" }}
+        >
           <Typography
             variant="h4"
             component="h1"
             itemProp="headline"
             gutterBottom
           >
-            {post.frontmatter.title}
+            {title}
           </Typography>
 
-          <Typography variant="caption">
-            by {post.frontmatter.author} | {post.frontmatter.date}
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            by {author}
+            {authorTitle ? `, ${authorTitle}` : ""}
           </Typography>
-        </Box>
+
+          <Typography variant="caption">{date}</Typography>
+        </Stack>
 
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}

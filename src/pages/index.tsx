@@ -12,6 +12,7 @@ export interface Post {
   excerpt: string
   frontmatter: {
     author: string
+    authorTitle: string
     date: string
     description: string
     title: string
@@ -71,7 +72,7 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <ListItem key={post.fields.slug} sx={{ pl: 0 }}>
+            <ListItem key={post.fields.slug} sx={{ pl: 0, mb: 2 }}>
               <article
                 className="post-list-item"
                 itemScope
@@ -92,10 +93,6 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                       {title}
                     </Link>
                   </Typography>
-
-                  <Typography variant="caption" component="h2">
-                    by {post.frontmatter.author} | {post.frontmatter.date}
-                  </Typography>
                 </header>
 
                 <section>
@@ -106,6 +103,10 @@ const BlogIndex = ({ data, location }: PageProps<PageData>) => {
                     itemProp="description"
                   />
                 </section>
+
+                <Typography variant="caption" component="h2">
+                  by <strong>{post.frontmatter.author}</strong>
+                </Typography>
               </article>
             </ListItem>
           )
@@ -132,6 +133,7 @@ export const pageQuery = graphql`
         }
         frontmatter {
           author
+          authorTitle
           date(formatString: "MMMM DD, YYYY")
           title
           description

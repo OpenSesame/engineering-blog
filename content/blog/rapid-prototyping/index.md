@@ -2,7 +2,7 @@
 title: Rapid Prototyping
 author: Mark Munson
 authorTitle: Senior Manager of Engineering
-date: 2022-09-22T18:10:20.783Z
+date: 2022-09-26T17:31:04.406Z
 description: Learn how to use rapid prototyping to quickly prove an approach to
   solving a problem
 ---

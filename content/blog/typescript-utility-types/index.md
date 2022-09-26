@@ -143,12 +143,4 @@ interface CustomButtonProps extends Pick<Omit<ButtonProps, 'variant' | 'size'>, 
 
 ## A﻿nd Many More
 
-TypeScript gives us many more utility types. You can try them all out in the official [Playground example](https://www.typescriptlang.org/play?&q=239).
-
-official he
-
-you can try them out  andhese examples just scratch the surface of what you can do with them.
-
-
-
-T﻿here are a ton of other types. Try them out in the hese[TypeScript Playground](https://www.typescriptlang.org/play?strictNullChecks=true&q=171#example/built-in-utility-types).
+Utility types can save you a lot of time and reduce complexity in your codebase. There are a lot more than what's covered here—you can try them all out in the official [TypeScript Playground](https://www.typescriptlang.org/play?&q=239). These examples just scratch the surface of what you can do with utility types and I hope they can help you improve your TypeScript.

@@ -41,7 +41,7 @@ const languages: LanguageName = {
 
 If I try to add German to this list, the compiler displays a nice error.
 
-![TypeScript compile error.](screen-shot-2022-08-16-at-5.29.58-pm.png "Error")
+![TypeScript compilation error](screen-shot-2022-08-16-at-5.29.58-pm.png "TypeScript compilation error")
 
 Another common use case is transforming the values of an object to a different type. Instead of maintaining a type that’s just used for the keys of other types, we can use the `keyof` keyword:
 
@@ -88,18 +88,61 @@ The opposite of `Partial` is `Required`—it makes all the properties of a type 
 
 Sometimes you just need a subset of properties from a given type. Instead of creating a new type with values that are duplicated elsewhere in the codebase, you can use `Pick` and `Omit`.
 
-[P﻿ick](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys) takes the given properties from a type. We use Pick to build custom React components that are based on other third-party components in order to simply the interface
+[P﻿ick](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys) takes the given properties from a type. For example, we use `Pick` to build custom React components that wrap other third-party components in order to simply the interface:
 
+```typescript
+import Button, { ButtonProps } from '@mui/material/Button';
 
+type CustomButtonProps = Pick<ButtonProps, 'color'>;
 
-I﻿f you need to build a custom React component that's based on another, possibly
+function CustomButton({ color }: CustomButtonProps) {
+  return (
+    <Button
+      color={color}
+      variant="contained"
+  ...
+}
+```
 
-React componentustom 
+T﻿his pattern helps enforce consistency since it limits the customization possible with props, but it also provides a simpler dev experience.
 
+[O﻿mit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) works the opposite way: it filters out properties of a given type. This is useful when you want to use an existing type but overwrite one or more of its properties.
 
+For example, maybe you have the concept of a "variant" in your design system and you need to expose it as a prop for a custom button, but the new component library you're adopting already uses "variant." You might try something like this:
 
-`Pick` is for creating a custom component that's based on
+```typescript
+import Button, { ButtonProps } from '@mui/material/Button';
+
+interface CustomButtonProps extends ButtonProps {
+  variant: 'success' | 'error';
+}
+```
+
+This won't compile because the custom `variant` type doesn't satisfy the constraints from `ButtonProps:`
+
+![TypeScript compilation error](screen-shot-2022-09-26-at-12.12.20-pm.png "TypeScript compilation error")
+
+It's valid to narrow the type, i.e. `variant: 'contained'`, but you can't overwrite the properties of other interfaces this way.
+
+T﻿he way around this is to use `Omit` to first remove the property from the type and then extend that filtered interface:
+
+```typescript
+import Button, { ButtonProps } from '@mui/material/Button';
+
+interface CustomButtonProps extends Omit<ButtonProps, 'variant'> {
+  variant: 'success' | 'error';
+}
+```
+
+B﻿oth utility types can, of course, be combined and use multiple keys to make them even more expressive:
+
+```typescript
+interface CustomButtonProps extends Pick<Omit<ButtonProps, 'variant' | 'size'>, 'color' | 'type'> {
+  variant: 'success' | 'error';
+  size: 'tiny' | 'big';
+}
+```
 
 ## A﻿nd Many More
 
-T﻿here are a ton of other types. Try them out in the [TypeScript Playground](https://www.typescriptlang.org/play?strictNullChecks=true&q=171#example/built-in-utility-types).
+Utility types can save you a lot of time and reduce complexity in your codebase. There are a lot more than what's covered here—you can try them all out in the official [TypeScript Playground](https://www.typescriptlang.org/play?&q=239). These examples just scratch the surface of what you can do with utility types and I hope they can help you improve your TypeScript.

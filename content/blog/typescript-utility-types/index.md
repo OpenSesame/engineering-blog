@@ -108,7 +108,7 @@ T﻿his pattern helps enforce consistency since it limits the customization poss
 
 [O﻿mit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) works the opposite way: it filters out properties of a given type. This is useful when you want to use an existing type but overwrite one or more of its properties.
 
-Maybe you already have the concept of a "variant" in your design system and you need to expose it as a prop for a custom button. You might try something like this:
+For example, maybe you have the concept of a "variant" in your design system and you need to expose it as a prop for a custom button, but the new component library you're adopting already uses "variant." You might try something like this:
 
 ```typescript
 import Button, { ButtonProps } from '@mui/material/Button';
@@ -118,9 +118,11 @@ interface CustomButtonProps extends ButtonProps {
 }
 ```
 
-This won't compile because the custom `variant` type doesn't satisfy the constraints from `ButtonProps`. It's valid to narrow the type, i.e. `variant: 'contained'`, but you can't overwrite the properties of other interfaces this way.
+This won't compile because the custom `variant` type doesn't satisfy the constraints from `ButtonProps:`
 
 ![TypeScript compilation error](screen-shot-2022-09-26-at-12.12.20-pm.png "TypeScript compilation error")
+
+It's valid to narrow the type, i.e. `variant: 'contained'`, but you can't overwrite the properties of other interfaces this way.
 
 T﻿he way around this is to use `Omit` to first remove the property from the type and then extend that filtered interface:
 

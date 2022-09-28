@@ -1,5 +1,5 @@
 ---
-title: How to spot React rendering performance issues?
+title: How to deal with React rendering performance issues?
 author: Angel Sucapuca
 authorTitle: Software Engineer
 date: 2022-09-27T22:04:41.197Z

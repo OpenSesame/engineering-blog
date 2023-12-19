@@ -1,10 +1,10 @@
 ---
-title: How We Implemented Type-Safe GraphQL With Hasura and the graphql-codegen
-  CLI Tool
+title: Type-Safe GraphQL With Hasura and the graphql-codegen CLI Tool
 author: Aaron Porter
 authorTitle: Software Engineer
 date: 2023-12-19T15:32:38.270Z
-description: TBD
+description: Learn how we transitioned from creating manual TypeScript types for
+  our GraphQL by using the graphql-codegen CLI tool
 ---
 In the last few months, the Catalog Engineering team has been hard at work on a new app to improve our customer's course curation process. This app connects to our new Hasura GraphQL API, to which we make requests for, and to mutate, data. Early on, we made the decision to not use a dedicated GraphQL client (e.g., apollo) and so we got used to creating TypeScript types for our GraphQL requests/responses as we needed them. This worked fine in the beginning as our app only had a few simple requests. However, as the number and complexity of these requests/responses grew, it became apparent that we needed a better solution.
 

@@ -12,7 +12,7 @@ Enter [graphql-codegen](https://the-guild.dev/graphql/codegen) - a CLI tool that
 
 ## Installation
 
-Note: _the following steps assume you have a working TypeScript app that is connected to an established Hasura GraphQL API with at least one GraphQL query/mutation/subscription_
+Note: *the following steps assume you have a working TypeScript app that is connected to an established Hasura GraphQL API with at least one GraphQL query/mutation/subscription*
 
 First, you'll need to install the tool and a few dependencies. Run the following:
 
@@ -73,13 +73,12 @@ const config: IGraphQLConfig = {
 };
 
 export default config;
-
 ```
 
 A few notes about the above config:
 
-- We are using Vite as our build tool. We import several environment variables via Vite's `loadEnv`. The `schema` config will be the same for you - just pop in your Hasura GraphQL API URL and admin secret and you should be set
-- Plugins allows for tons of custom configuration. We've chosen several customization that work well for us, but you might choose something differe. Also, make note of the `typescript-generic-sdk` plugin - we'll talk more about that later
+* We are using Vite as our build tool. We import several environment variables via Vite's `loadEnv`. The `schema` config will be the same for you - just pop in your Hasura GraphQL API URL and admin secret and you should be set
+* Plugins allows for tons of custom configuration. We've chosen several customization that work well for us, but you might choose something differe. Also, make note of the `typescript-generic-sdk` plugin - we'll talk more about that later
 
 ## An Example Mutation
 

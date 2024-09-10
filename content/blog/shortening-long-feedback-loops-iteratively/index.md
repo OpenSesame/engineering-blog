@@ -5,7 +5,7 @@ authorTitle: Staff Software Engineer
 date: 2024-09-10T20:26:02.863Z
 description: Exploring initial steps at shortening feedback loops
 ---
-![](feedback-loops.webp)
+![A series of loops that feedback into each other and serve as a visual metaphor for a cycle that uses feedback to improve a design or feature](feedback-loops.webp "Feedback loops are at the heart of any system")
 
  
 

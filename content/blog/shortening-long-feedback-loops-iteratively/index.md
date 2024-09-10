@@ -5,7 +5,11 @@ authorTitle: Staff Software Engineer
 date: 2024-09-10T20:26:02.863Z
 description: Exploring initial steps at shortening feedback loops
 ---
- ***TL;DR;***
+![](feedback-loops.webp)
+
+ 
+
+***TL;DR;***
 
 * Feedback loops, especially short ones, are extremely important for developing high quality software
 * A rapid feedback loop of < 5-10 minutes is not always possible. If people or manual steps are involved, days may not even be possible.
